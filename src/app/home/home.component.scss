@@ -1,0 +1,106 @@
+@import "../../sass/abstracts/variables";
+@import "../../sass/abstracts/mixins";
+header {
+    height: 85vh;
+    background-image: linear-gradient(
+        to right bottom,
+         rgba($color-primary-light, 0.8),
+         rgba($color-primary-dark, 0.8)),
+         url(../../assets/header-back-small.jpg);
+    background-size: cover;
+    background-position: center;
+    
+    @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+    (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+    (min-width: 125em) {
+        background-image: linear-gradient(
+        to right bottom,
+         rgba($color-primary-light, 0.8),
+         rgba($color-primary-dark, 0.8)),
+         url(../../assets/header-back.jpg)
+    }
+
+    @supports(clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+        height: 95vh;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100% );
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100% );
+    }
+    position: relative;
+ /*    @include respond(phone) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100% );
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100% );
+    }  */
+}
+
+.header {
+    &__logo {
+        height: 3.5rem;
+    
+    }
+
+    &__logo-box {
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+    }
+
+    &__head-box {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        height: 95%;
+        width: 95%;
+    }
+
+}
+
+.navigation { 
+
+    &__nav {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: all .8s cubic-bezier(0.85, -0.55, 0.265, 1.55);
+    }
+    &__list{
+        list-style: none;
+        text-align: center;
+        width: 100%;
+    }
+    &__item {
+        margin: 1rem;
+    }
+    &__link {
+        &:link,
+        &:visited {
+            display: inline-block;
+            font-size: 3rem;
+            font-weight: 300;
+            padding: 1rem 2rem;
+            color: $color-white;
+            text-transform: uppercase;
+            text-decoration: none;
+            background-size: 225%;
+            transition: all .8s;
+            background-image: linear-gradient(120deg,
+             transparent 0%, 
+             transparent 50%,
+             $color-white 50%);
+
+            span {
+                margin-right: 1.5rem;
+                display: inline-block;
+            }
+        }
+        &:hover,
+        &:active {
+            background-position: 100%;
+            color: $color-primary;
+            transform: translateX(1rem);
+        }
+
+    }
+}
